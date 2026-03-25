@@ -237,8 +237,12 @@
     }
 
     .panel {
+      position: -webkit-sticky;
       position: sticky;
       top: 24px;
+      align-self: start;
+      max-height: calc(100vh - 48px);
+      overflow: auto;
       padding: 24px;
     }
 
