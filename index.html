@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maksym Nebliienko | Senior Java Software Engineer</title>
+  <meta
+    name="description"
+    content="Senior Java Software Engineer specializing in fintech, blockchain, AI-driven systems, cross-border payments, MPC, MCP, and distributed backend platforms."
+  >
+  <style>
+    :root {
+      --paper: #f6f3ec;
+      --ink: #18202a;
+      --muted: #5d6671;
+      --accent: #0d5c63;
+      --accent-soft: #d6ebe7;
+      --line: #d7d1c7;
+      --card: rgba(255, 255, 255, 0.78);
+      --shadow: 0 18px 50px rgba(24, 32, 42, 0.10);
+      --max: 1080px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(13, 92, 99, 0.18), transparent 30%),
+        radial-gradient(circle at top right, rgba(199, 135, 49, 0.16), transparent 26%),
+        linear-gradient(180deg, #f3efe6 0%, #f8f5ef 52%, #efebe1 100%);
+      font-family: "Avenir Next", Avenir, "Segoe UI", "Helvetica Neue", sans-serif;
+      line-height: 1.55;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 24px auto 48px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 12px;
+    }
+
+    .lang-switcher {
+      display: inline-flex;
+      gap: 8px;
+      padding: 8px;
+      border: 1px solid rgba(24, 32, 42, 0.08);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.82);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+    }
+
+    .lang-button {
+      min-width: 58px;
+      padding: 9px 14px;
+      border: 0;
+      border-radius: 999px;
+      background: transparent;
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color 180ms ease, color 180ms ease, transform 180ms ease;
+    }
+
+    .lang-button:hover {
+      transform: translateY(-1px);
+    }
+
+    .lang-button.active {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 36px 36px 30px;
+      border: 1px solid rgba(24, 32, 42, 0.08);
+      border-radius: 28px;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.84), rgba(255, 255, 255, 0.72)),
+        linear-gradient(120deg, rgba(13, 92, 99, 0.10), rgba(199, 135, 49, 0.06));
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -90px -120px auto;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(13, 92, 99, 0.18), transparent 68%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+
+    h1 {
+      margin-top: 18px;
+      font-size: clamp(2.4rem, 5vw, 4.4rem);
+      letter-spacing: -0.04em;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.8fr) minmax(240px, 1fr);
+      gap: 24px;
+      align-items: end;
+      margin-top: 16px;
+    }
+
+    .title {
+      margin-top: 10px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.02em;
+    }
+
+    .summary {
+      max-width: 58rem;
+      margin-top: 20px;
+      font-size: 1.03rem;
+      color: #24303c;
+    }
+
+    .contact-card {
+      display: grid;
+      gap: 10px;
+      justify-items: start;
+      padding: 18px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.68);
+      border: 1px solid rgba(24, 32, 42, 0.08);
+    }
+
+    .contact-label {
+      font-size: 0.76rem;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .contact-link {
+      font-size: 1rem;
+      font-weight: 700;
+      text-decoration: none;
+      word-break: break-word;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(24, 32, 42, 0.12);
+      background: rgba(255, 255, 255, 0.82);
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 700;
+      transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease;
+    }
+
+    .button.primary {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+      border-color: rgba(24, 32, 42, 0.22);
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 320px minmax(0, 1fr);
+      gap: 24px;
+      margin-top: 24px;
+      align-items: start;
+    }
+
+    .panel,
+    .content {
+      border: 1px solid rgba(24, 32, 42, 0.08);
+      border-radius: 28px;
+      background: var(--card);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+    }
+
+    .panel {
+      position: sticky;
+      top: 24px;
+      padding: 24px;
+    }
+
+    .content {
+      padding: 28px;
+    }
+
+    .block + .block {
+      margin-top: 26px;
+      padding-top: 26px;
+      border-top: 1px solid var(--line);
+    }
+
+    .block h2 {
+      font-size: 1.34rem;
+      margin-bottom: 14px;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .chip {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(13, 92, 99, 0.08);
+      border: 1px solid rgba(13, 92, 99, 0.14);
+      color: #18464b;
+      font-size: 0.93rem;
+      font-weight: 600;
+    }
+
+    .fact-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .fact-label {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--muted);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .fact-value {
+      font-size: 0.98rem;
+      font-weight: 600;
+    }
+
+    .job + .job {
+      margin-top: 28px;
+      padding-top: 28px;
+      border-top: 1px solid var(--line);
+    }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 10px;
+      align-items: baseline;
+    }
+
+    .job-title {
+      font-size: 1.18rem;
+    }
+
+    .job-meta {
+      color: var(--muted);
+      font-size: 0.95rem;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .job-note {
+      margin: 2px 0 12px;
+      color: var(--accent);
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .subproject {
+      margin-top: 14px;
+      padding-left: 16px;
+      border-left: 2px solid rgba(13, 92, 99, 0.18);
+    }
+
+    .subproject + .subproject {
+      margin-top: 18px;
+    }
+
+    .subproject-title {
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .subproject-dates {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin: 2px 0 8px;
+    }
+
+    ul {
+      margin: 10px 0 0 18px;
+      padding: 0;
+    }
+
+    li + li {
+      margin-top: 8px;
+    }
+
+    .environment {
+      margin-top: 12px;
+      color: #304050;
+      font-size: 0.94rem;
+    }
+
+    .education-card,
+    .service-card {
+      padding: 16px 18px;
+      border-radius: 20px;
+      background: rgba(13, 92, 99, 0.05);
+      border: 1px solid rgba(13, 92, 99, 0.10);
+    }
+
+    .footer {
+      margin-top: 16px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    [data-lang-pane] {
+      display: none;
+    }
+
+    [data-lang-pane].active {
+      display: block;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .panel {
+        position: static;
+      }
+
+      .job-header {
+        flex-direction: column;
+      }
+
+      .job-meta {
+        text-align: left;
+        white-space: normal;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .page {
+        width: 100%;
+        margin: 0;
+      }
+
+      .topbar {
+        display: none;
+      }
+
+      .hero,
+      .panel,
+      .content {
+        box-shadow: none;
+        border: 1px solid #d8d8d8;
+        background: #fff;
+        backdrop-filter: none;
+      }
+
+      .hero,
+      .panel,
+      .content {
+        border-radius: 0;
+      }
+
+      .layout {
+        grid-template-columns: 280px 1fr;
+        gap: 16px;
+      }
+
+      .button {
+        display: none;
+      }
+
+      a {
+        text-decoration: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="topbar">
+      <div class="lang-switcher" aria-label="Language switcher">
+        <button class="lang-button" data-lang-button="en" type="button">EN</button>
+        <button class="lang-button" data-lang-button="ua" type="button">UA</button>
+      </div>
+    </div>
+
+    <div data-lang-pane="en">
+      <section class="hero">
+        <span class="eyebrow">CV / Resume</span>
+        <div class="hero-grid">
+          <div>
+            <h1>Maksym Nebliienko</h1>
+            <div class="title">Senior Java Software Engineer</div>
+            <p class="summary">
+              Senior Java Software Engineer with experience building fintech, blockchain, and AI-driven products,
+              from architecture and backend implementation to release and production support. Worked on cross-border
+              payments, blockchain transaction flows, agent-initiated payments, MCP-based integrations, and distributed
+              backend systems. Strong background in Java, Spring, SQL, microservices, payment infrastructure, and full
+              lifecycle product delivery in complex technical environments.
+            </p>
+            <div class="actions">
+              <a class="button primary" href="mailto:nebliienko@gmail.com">Contact</a>
+              <a class="button" href="#" onclick="window.print(); return false;">Print / Save as PDF</a>
+            </div>
+          </div>
+          <aside class="contact-card">
+            <div>
+              <span class="contact-label">Email</span>
+              <a class="contact-link" href="mailto:nebliienko@gmail.com">nebliienko@gmail.com</a>
+            </div>
+            <div>
+              <span class="contact-label">Focus</span>
+              <div class="fact-value">Fintech, Blockchain, AI, Payments Infrastructure</div>
+            </div>
+            <div>
+              <span class="contact-label">Languages</span>
+              <div class="fact-value">Ukrainian (Native), English (C1)</div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="layout">
+        <aside class="panel">
+          <div class="block">
+            <h2>Core Skills</h2>
+            <div class="skills">
+              <span class="chip">Java</span>
+              <span class="chip">Spring</span>
+              <span class="chip">Hibernate</span>
+              <span class="chip">REST APIs</span>
+              <span class="chip">Microservices</span>
+              <span class="chip">Payment Systems</span>
+              <span class="chip">Fintech</span>
+              <span class="chip">Blockchain</span>
+              <span class="chip">Stablecoin Payments</span>
+              <span class="chip">MPC</span>
+              <span class="chip">MCP</span>
+              <span class="chip">Hazelcast</span>
+              <span class="chip">MySQL</span>
+              <span class="chip">PostgreSQL</span>
+              <span class="chip">Liquibase</span>
+              <span class="chip">Maven</span>
+              <span class="chip">Gradle</span>
+              <span class="chip">Git</span>
+              <span class="chip">AWS</span>
+              <span class="chip">Jira</span>
+              <span class="chip">Confluence</span>
+              <span class="chip">Scrum</span>
+              <span class="chip">Kanban</span>
+            </div>
+          </div>
+
+          <div class="block">
+            <h2>Snapshot</h2>
+            <div class="fact-list">
+              <div>
+                <span class="fact-label">Primary Stack</span>
+                <div class="fact-value">Java, Spring, SQL, Distributed Backends</div>
+              </div>
+              <div>
+                <span class="fact-label">Domain Focus</span>
+                <div class="fact-value">Cross-Border Payments, Blockchain, Agentic Commerce</div>
+              </div>
+              <div>
+                <span class="fact-label">Delivery Scope</span>
+                <div class="fact-value">Architecture Input, Implementation, Integration, Release, Support</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="block">
+            <h2>Education</h2>
+            <div class="education-card">
+              <div class="fact-value">Master of Computer Science (Artificial Intelligence), with honors</div>
+              <div>KTURE University, Kharkiv, Ukraine</div>
+              <div class="job-meta" style="text-align:left; margin-top:6px;">2011 - 2017</div>
+            </div>
+          </div>
+
+          <div class="block">
+            <h2>Military Service</h2>
+            <div class="service-card">
+              <div class="fact-value">Psychological Recovery Group | Group Officer (Lieutenant)</div>
+              <div class="job-meta" style="text-align:left; margin-top:6px;">October 2025 - Present</div>
+              <ul>
+                <li>Serving as a group officer in a psychological recovery unit.</li>
+                <li>Role aligned with additional education in psychology, alongside technical and operational experience.</li>
+              </ul>
+            </div>
+          </div>
+        </aside>
+
+        <section class="content">
+          <div class="block">
+            <h2>Professional Experience</h2>
+
+            <article class="job">
+              <div class="job-header">
+                <h3 class="job-title">InFlow | Senior Java Software Engineer</h3>
+                <div class="job-meta">June 2025 - October 2025</div>
+              </div>
+              <ul>
+                <li>Contributed to an AI-native payments platform for agentic commerce, enabling agents to onboard and transact directly inside product workflows.</li>
+                <li>Worked across the full project lifecycle, from implementation and integration to release and production support.</li>
+                <li>Implemented MCP-based integrations to support agent connectivity and in-flow product interactions.</li>
+                <li>Set up and configured Hazelcast as part of the distributed backend infrastructure.</li>
+                <li>Contributed to backend systems supporting policy-aware payments, wallet-related flows, and AI-driven commerce scenarios.</li>
+              </ul>
+              <div class="environment"><strong>Environment:</strong> Java, Spring, MCP, MPC, Hazelcast, Payment Infrastructure, AI/Agentic Workflows</div>
+            </article>
+
+            <article class="job">
+              <div class="job-header">
+                <h3 class="job-title">Six Clovers | Senior Java Software Engineer</h3>
+                <div class="job-meta">May 2020 - June 2025</div>
+              </div>
+              <div class="job-note">Concurrent with Miratech from May 2020 to October 2022</div>
+              <ul>
+                <li>Worked on a cross-border payments platform combining blockchain technology with fiat infrastructure for real-time international transactions.</li>
+                <li>Covered the full project lifecycle, including architecture input, core backend implementation, integration, release preparation, and production support.</li>
+                <li>Implemented an MPC signing protocol module as part of the platform's secure transaction flow.</li>
+                <li>Contributed to payment infrastructure for blockchain-based settlement and cross-border transfer scenarios.</li>
+                <li>Delivered backend functionality in a fintech environment focused on secure and scalable payment execution.</li>
+              </ul>
+              <div class="environment"><strong>Environment:</strong> Java, Spring, Fintech, Cross-Border Payments, Blockchain, MPC</div>
+            </article>
+
+            <article class="job">
+              <div class="job-header">
+                <h3 class="job-title">Miratech | Software Engineer | Kharkiv, Ukraine</h3>
+                <div class="job-meta">September 2017 - October 2022</div>
+              </div>
+
+              <div class="subproject">
+                <div class="subproject-title">Proxy Platform</div>
+                <div class="subproject-dates">September 2018 - October 2022</div>
+                <ul>
+                  <li>Developed and enhanced proxy services that added intermediate client-server processing, including failover recovery and temporary data cleanup flows.</li>
+                  <li>Implemented new backend features and proposed technical improvements to increase service reliability and maintainability.</li>
+                  <li>Refactored the cleanup subsystem to improve code structure and simplify support.</li>
+                  <li>Investigated production logs and resolved defects in existing functionality.</li>
+                  <li>Worked with Java 8, Spring, Redis, and Gradle in a production support and feature-delivery environment.</li>
+                </ul>
+              </div>
+
+              <div class="subproject">
+                <div class="subproject-title">Mail Server</div>
+                <div class="subproject-dates">September 2017 - September 2018</div>
+                <ul>
+                  <li>Supported a microservice responsible for inbound and outbound email processing.</li>
+                  <li>Delivered bug fixes and refactoring changes to improve code quality and service stability.</li>
+                </ul>
+              </div>
+
+              <div class="environment"><strong>Environment:</strong> Java 8, Spring, Redis, Gradle, Lombok, IntelliJ IDEA, Jira, Confluence, AWS, Jenkins, GitHub, Kibana, Grafana</div>
+            </article>
+
+            <article class="job">
+              <div class="job-header">
+                <h3 class="job-title">INSART | Software Engineer | Kharkiv, Ukraine</h3>
+                <div class="job-meta">July 2016 - April 2017</div>
+              </div>
+              <div class="subproject">
+                <div class="subproject-title">PAY.ON</div>
+                <div class="subproject-dates">July 2016 - April 2017</div>
+                <ul>
+                  <li>Contributed to an enterprise payment integration platform connecting merchants with acquirers.</li>
+                  <li>Implemented new features, fixed defects, and refactored existing code in a large Java application.</li>
+                  <li>Worked on load balancer split-related changes and developed both synchronous and asynchronous connectors.</li>
+                </ul>
+              </div>
+              <div class="environment"><strong>Environment:</strong> Java, Spring MVC, Freemarker, Struts, JiBX, Hibernate, Maven, IntelliJ IDEA, Jira, Confluence, Jenkins, Gerrit</div>
+            </article>
+
+            <article class="job">
+              <div class="job-header">
+                <h3 class="job-title">INSART / TIWlab | Software Engineer / Tech Lead | Kharkiv, Ukraine</h3>
+                <div class="job-meta">September 2016 - November 2016</div>
+              </div>
+              <div class="subproject">
+                <div class="subproject-title">FunnyFinch</div>
+                <ul>
+                  <li>Led backend delivery for an Android game support platform that included REST endpoints and an admin UI.</li>
+                  <li>Covered the full delivery cycle from architecture and implementation to code review, releases, and bug fixing.</li>
+                  <li>Supervised development work and reviewed code to maintain implementation quality.</li>
+                </ul>
+              </div>
+              <div class="environment"><strong>Environment:</strong> Java 8, Apache Tomcat, Spring Core, Spring MVC, Spring Security, Hibernate, JPA, PrimeFaces, Liquibase, Logback, EasyMock, Apache Commons, Guava, Gradle, Git</div>
+            </article>
+
+            <article class="job">
+              <div class="job-header">
+                <h3 class="job-title">EPAM Systems | Software Engineer | Kharkiv, Ukraine</h3>
+                <div class="job-meta">May 2014 - June 2016</div>
+              </div>
+              <div class="subproject">
+                <div class="subproject-title">RMS</div>
+                <div class="subproject-dates">June 2015 - June 2016</div>
+                <ul>
+                  <li>Contributed to a rights management system covering admin functionality and REST services for agreements, tags, rules, and license handling.</li>
+                  <li>Worked on large data import flows, including files with more than 100,000 records.</li>
+                  <li>Integrated the platform with external systems and improved existing code through refactoring and cleanup.</li>
+                  <li>Contributed to UI development, technical documentation, release notes, and deployment plans.</li>
+                  <li>Supported knowledge transfer and ongoing defect resolution.</li>
+                </ul>
+              </div>
+              <div class="environment"><strong>Environment:</strong> Java 7, Apache Tomcat, Spring Core, Spring MVC, Hibernate, JPA, Vaadin 7, Liquibase, JMS, Camel, ActiveMQ, Gradle, Jenkins, Git</div>
+            </article>
+
+            <article class="job">
+              <div class="job-header">
+                <h3 class="job-title">EPAM Systems | Junior Software Engineer | Kharkiv, Ukraine</h3>
+                <div class="job-meta">March 2014 - June 2015</div>
+              </div>
+              <div class="subproject">
+                <div class="subproject-title">ECOM</div>
+                <div class="subproject-dates">July 2014 - June 2015</div>
+                <ul>
+                  <li>Built converters to support migration from cart_v1 to cart_v2.</li>
+                  <li>Developed UI components and integrated the application with a mailing system.</li>
+                  <li>Extended search functionality for additional order types.</li>
+                  <li>Implemented JasperReports output and related UI functionality.</li>
+                  <li>Researched migration from Vaadin 6 to Vaadin 7 and delivered defect fixes across the platform.</li>
+                </ul>
+              </div>
+              <div class="subproject">
+                <div class="subproject-title">InterviewPortal</div>
+                <div class="subproject-dates">May 2014 - July 2014</div>
+                <ul>
+                  <li>Contributed to an internal recruiting web application used to organize interviews, assign interviewers, book rooms, and track feedback.</li>
+                  <li>Migrated data storage from Jackrabbit to MySQL.</li>
+                  <li>Configured Maven lifecycle processes and supported virtual machine control tasks.</li>
+                  <li>Implemented new functionality, improved UI behavior, extended feedback forms, and optimized validation flows.</li>
+                  <li>Fixed hot issues and removed cyclic reloading behavior.</li>
+                </ul>
+              </div>
+              <div class="environment"><strong>Environment:</strong> Java 7, Spring MVC, Spring JDBC, Spring Security, MySQL, Maven, JUnit, Groovy-based STF</div>
+            </article>
+          </div>
+        </section>
+      </section>
+    </div>
+
+    <div data-lang-pane="ua">
+      <section class="hero">
+        <span class="eyebrow">CV / Резюме</span>
+        <div class="hero-grid">
+          <div>
+            <h1>Maksym Nebliienko</h1>
+            <div class="title">Senior Java Software Engineer</div>
+            <p class="summary">
+              Senior Java Software Engineer з досвідом розробки fintech-, blockchain- та AI-продуктів: від архітектурного
+              опрацювання і backend-реалізації до релізів та production support. Працював із транскордонними платежами,
+              blockchain transaction flows, payments initiated by agents, MCP-інтеграціями та distributed backend systems.
+              Сильна експертиза в Java, Spring, SQL, microservices, payment infrastructure та повному життєвому циклі
+              продукту в технічно складних середовищах.
+            </p>
+            <div class="actions">
+              <a class="button primary" href="mailto:nebliienko@gmail.com">Контакт</a>
+              <a class="button" href="#" onclick="window.print(); return false;">Друк / Зберегти як PDF</a>
+            </div>
+          </div>
+          <aside class="contact-card">
+            <div>
+              <span class="contact-label">Email</span>
+              <a class="contact-link" href="mailto:nebliienko@gmail.com">nebliienko@gmail.com</a>
+            </div>
+            <div>
+              <span class="contact-label">Фокус</span>
+              <div class="fact-value">Fintech, Blockchain, AI, Payments Infrastructure</div>
+            </div>
+            <div>
+              <span class="contact-label">Мови</span>
+              <div class="fact-value">Українська (рідна), Англійська (C1)</div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="layout">
+        <aside class="panel">
+          <div class="block">
+            <h2>Ключові навички</h2>
+            <div class="skills">
+              <span class="chip">Java</span>
+              <span class="chip">Spring</span>
+              <span class="chip">Hibernate</span>
+              <span class="chip">REST APIs</span>
+              <span class="chip">Microservices</span>
+              <span class="chip">Payment Systems</span>
+              <span class="chip">Fintech</span>
+              <span class="chip">Blockchain</span>
+              <span class="chip">Stablecoin Payments</span>
+              <span class="chip">MPC</span>
+              <span class="chip">MCP</span>
+              <span class="chip">Hazelcast</span>
+              <span class="chip">MySQL</span>
+              <span class="chip">PostgreSQL</span>
+              <span class="chip">Liquibase</span>
+              <span class="chip">Maven</span>
+              <span class="chip">Gradle</span>
+              <span class="chip">Git</span>
+              <span class="chip">AWS</span>
+              <span class="chip">Jira</span>
+              <span class="chip">Confluence</span>
+              <span class="chip">Scrum</span>
+              <span class="chip">Kanban</span>
+            </div>
+          </div>
+
+          <div class="block">
+            <h2>Профіль</h2>
+            <div class="fact-list">
+              <div>
+                <span class="fact-label">Основний стек</span>
+                <div class="fact-value">Java, Spring, SQL, Distributed Backends</div>
+              </div>
+              <div>
+                <span class="fact-label">Доменна експертиза</span>
+                <div class="fact-value">Cross-Border Payments, Blockchain, Agentic Commerce</div>
+              </div>
+              <div>
+                <span class="fact-label">Сфера відповідальності</span>
+                <div class="fact-value">Architecture Input, Implementation, Integration, Release, Support</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="block">
+            <h2>Освіта</h2>
+            <div class="education-card">
+              <div class="fact-value">Магістр комп'ютерних наук (Artificial Intelligence), з відзнакою</div>
+              <div>KTURE University, Kharkiv, Ukraine</div>
+              <div class="job-meta" style="text-align:left; margin-top:6px;">2011 - 2017</div>
+            </div>
+          </div>
+
+          <div class="block">
+            <h2>Військова служба</h2>
+            <div class="service-card">
+              <div class="fact-value">Psychological Recovery Group | Group Officer (Lieutenant)</div>
+              <div class="job-meta" style="text-align:left; margin-top:6px;">Жовтень 2025 - дотепер</div>
+              <ul>
+                <li>Служу офіцером групи в підрозділі психологічного відновлення.</li>
+                <li>Роль пов'язана з додатковою освітою у сфері психології разом із технічним та операційним досвідом.</li>
+              </ul>
+            </div>
+          </div>
+        </aside>
+
+        <section class="content">
+          <div class="block">
+            <h2>Професійний досвід</h2>
+
+            <article class="job">
+              <div class="job-header">
+                <h3 class="job-title">InFlow | Senior Java Software Engineer</h3>
+                <div class="job-meta">Червень 2025 - Жовтень 2025</div>
+              </div>
+              <ul>
+                <li>Працював над AI-native payment platform для agentic commerce, яка дозволяє агентам проходити onboarding і здійснювати транзакції безпосередньо в межах продуктового флоу.</li>
+                <li>Брав участь у повному життєвому циклі проєкту: від реалізації та інтеграції до релізів і production support.</li>
+                <li>Імплементував MCP-based integrations для підтримки agent connectivity та взаємодії в межах продукту.</li>
+                <li>Налаштовував Hazelcast як частину distributed backend infrastructure.</li>
+                <li>Працював над backend-системами для policy-aware payments, wallet-related flows та AI-driven commerce scenarios.</li>
+              </ul>
+              <div class="environment"><strong>Environment:</strong> Java, Spring, MCP, MPC, Hazelcast, Payment Infrastructure, AI/Agentic Workflows</div>
+            </article>
+
+            <article class="job">
+              <div class="job-header">
+                <h3 class="job-title">Six Clovers | Senior Java Software Engineer</h3>
+                <div class="job-meta">Травень 2020 - Червень 2025</div>
+              </div>
+              <div class="job-note">Паралельно з Miratech з травня 2020 до жовтня 2022</div>
+              <ul>
+                <li>Працював над платформою для транскордонних платежів, що поєднувала blockchain technology та fiat infrastructure для міжнародних транзакцій у реальному часі.</li>
+                <li>Покривав повний життєвий цикл проєкту: architecture input, core backend implementation, integration, release preparation та production support.</li>
+                <li>Імплементував модуль MPC signing protocol як частину secure transaction flow.</li>
+                <li>Брав участь у розвитку payment infrastructure для blockchain-based settlement та cross-border transfer scenarios.</li>
+                <li>Розробляв backend-функціональність у fintech-середовищі з фокусом на secure та scalable payment execution.</li>
+              </ul>
+              <div class="environment"><strong>Environment:</strong> Java, Spring, Fintech, Cross-Border Payments, Blockchain, MPC</div>
+            </article>
+
+            <article class="job">
+              <div class="job-header">
+                <h3 class="job-title">Miratech | Software Engineer | Kharkiv, Ukraine</h3>
+                <div class="job-meta">Вересень 2017 - Жовтень 2022</div>
+              </div>
+
+              <div class="subproject">
+                <div class="subproject-title">Proxy Platform</div>
+                <div class="subproject-dates">Вересень 2018 - Жовтень 2022</div>
+                <ul>
+                  <li>Розробляв і розвивав proxy services з проміжною client-server логікою, включно з failover recovery та temporary data cleanup flows.</li>
+                  <li>Імплементував нові backend features і пропонував технічні покращення для надійності та підтримуваності сервісу.</li>
+                  <li>Повністю переробив cleanup subsystem для кращої структури коду та простішої підтримки.</li>
+                  <li>Аналізував production logs і усував дефекти в наявному функціоналі.</li>
+                  <li>Працював з Java 8, Spring, Redis і Gradle у середовищі production support та feature delivery.</li>
+                </ul>
+              </div>
+
+              <div class="subproject">
+                <div class="subproject-title">Mail Server</div>
+                <div class="subproject-dates">Вересень 2017 - Вересень 2018</div>
+                <ul>
+                  <li>Підтримував microservice, відповідальний за обробку вхідних та вихідних email-повідомлень.</li>
+                  <li>Виконував bug fixing і refactoring для підвищення якості коду та стабільності сервісу.</li>
+                </ul>
+              </div>
+
+              <div class="environment"><strong>Environment:</strong> Java 8, Spring, Redis, Gradle, Lombok, IntelliJ IDEA, Jira, Confluence, AWS, Jenkins, GitHub, Kibana, Grafana</div>
+            </article>
+
+            <article class="job">
+              <div class="job-header">
+                <h3 class="job-title">INSART | Software Engineer | Kharkiv, Ukraine</h3>
+                <div class="job-meta">Липень 2016 - Квітень 2017</div>
+              </div>
+              <div class="subproject">
+                <div class="subproject-title">PAY.ON</div>
+                <div class="subproject-dates">Липень 2016 - Квітень 2017</div>
+                <ul>
+                  <li>Брав участь у розробці enterprise payment integration platform, яка з'єднувала merchants з acquirers.</li>
+                  <li>Імплементував нові features, виправляв дефекти та рефакторив наявний код у великому Java-застосунку.</li>
+                  <li>Працював над load balancer split-related changes та розробкою synchronous і asynchronous connectors.</li>
+                </ul>
+              </div>
+              <div class="environment"><strong>Environment:</strong> Java, Spring MVC, Freemarker, Struts, JiBX, Hibernate, Maven, IntelliJ IDEA, Jira, Confluence, Jenkins, Gerrit</div>
+            </article>
+
+            <article class="job">
+              <div class="job-header">
+                <h3 class="job-title">INSART / TIWlab | Software Engineer / Tech Lead | Kharkiv, Ukraine</h3>
+                <div class="job-meta">Вересень 2016 - Листопад 2016</div>
+              </div>
+              <div class="subproject">
+                <div class="subproject-title">FunnyFinch</div>
+                <ul>
+                  <li>Очолював backend delivery для платформи підтримки Android-гри, що включала REST endpoints та admin UI.</li>
+                  <li>Вів повний цикл розробки: від архітектури та реалізації до code review, релізів і bug fixing.</li>
+                  <li>Координував розробку та проводив code review для підтримки якості реалізації.</li>
+                </ul>
+              </div>
+              <div class="environment"><strong>Environment:</strong> Java 8, Apache Tomcat, Spring Core, Spring MVC, Spring Security, Hibernate, JPA, PrimeFaces, Liquibase, Logback, EasyMock, Apache Commons, Guava, Gradle, Git</div>
+            </article>
+
+            <article class="job">
+              <div class="job-header">
+                <h3 class="job-title">EPAM Systems | Software Engineer | Kharkiv, Ukraine</h3>
+                <div class="job-meta">Травень 2014 - Червень 2016</div>
+              </div>
+              <div class="subproject">
+                <div class="subproject-title">RMS</div>
+                <div class="subproject-dates">Червень 2015 - Червень 2016</div>
+                <ul>
+                  <li>Працював над rights management system з admin functionality та REST services для agreements, tags, rules і license handling.</li>
+                  <li>Розробляв великі data import flows, включно з файлами на понад 100,000 records.</li>
+                  <li>Інтегрував платформу з зовнішніми системами та покращував наявний код через refactoring і cleanup.</li>
+                  <li>Брав участь у UI development, technical documentation, release notes та deployment plans.</li>
+                  <li>Підтримував knowledge transfer та регулярне усунення дефектів.</li>
+                </ul>
+              </div>
+              <div class="environment"><strong>Environment:</strong> Java 7, Apache Tomcat, Spring Core, Spring MVC, Hibernate, JPA, Vaadin 7, Liquibase, JMS, Camel, ActiveMQ, Gradle, Jenkins, Git</div>
+            </article>
+
+            <article class="job">
+              <div class="job-header">
+                <h3 class="job-title">EPAM Systems | Junior Software Engineer | Kharkiv, Ukraine</h3>
+                <div class="job-meta">Березень 2014 - Червень 2015</div>
+              </div>
+              <div class="subproject">
+                <div class="subproject-title">ECOM</div>
+                <div class="subproject-dates">Липень 2014 - Червень 2015</div>
+                <ul>
+                  <li>Створив converters для migration from cart_v1 to cart_v2.</li>
+                  <li>Розробляв UI components та інтегрував застосунок із mailing system.</li>
+                  <li>Розширив search functionality для підтримки додаткових типів замовлень.</li>
+                  <li>Імплементував JasperReports output і відповідний UI functionality.</li>
+                  <li>Досліджував міграцію з Vaadin 6 на Vaadin 7 і виправляв дефекти на платформі.</li>
+                </ul>
+              </div>
+              <div class="subproject">
+                <div class="subproject-title">InterviewPortal</div>
+                <div class="subproject-dates">Травень 2014 - Липень 2014</div>
+                <ul>
+                  <li>Брав участь у розробці внутрішнього recruiting web application для організації інтерв'ю, призначення interviewers, бронювання кімнат та відстеження feedback.</li>
+                  <li>Мігрував data storage з Jackrabbit на MySQL.</li>
+                  <li>Налаштовував Maven lifecycle processes і підтримував virtual machine control tasks.</li>
+                  <li>Імплементував новий функціонал, покращував UI behavior, розширював feedback forms та оптимізував validation flows.</li>
+                  <li>Усував hot issues та прибрав cyclic reloading behavior.</li>
+                </ul>
+              </div>
+              <div class="environment"><strong>Environment:</strong> Java 7, Spring MVC, Spring JDBC, Spring Security, MySQL, Maven, JUnit, Groovy-based STF</div>
+            </article>
+          </div>
+        </section>
+      </section>
+    </div>
+
+    <div class="footer">Static HTML CV ready for GitHub Pages.</div>
+  </main>
+
+  <script>
+    (function () {
+      var panes = document.querySelectorAll("[data-lang-pane]");
+      var buttons = document.querySelectorAll("[data-lang-button]");
+      var titles = {
+        en: "Maksym Nebliienko | Senior Java Software Engineer",
+        ua: "Maksym Nebliienko | Senior Java Software Engineer | UA"
+      };
+      var descriptions = {
+        en: "Senior Java Software Engineer specializing in fintech, blockchain, AI-driven systems, cross-border payments, MPC, MCP, and distributed backend platforms.",
+        ua: "Senior Java Software Engineer з фокусом на fintech, blockchain, AI-driven systems, cross-border payments, MPC, MCP та distributed backend platforms."
+      };
+      var metaDescription = document.querySelector('meta[name="description"]');
+
+      function setLanguage(lang) {
+        if (lang !== "ua") {
+          lang = "en";
+        }
+
+        panes.forEach(function (pane) {
+          pane.classList.toggle("active", pane.getAttribute("data-lang-pane") === lang);
+        });
+
+        buttons.forEach(function (button) {
+          button.classList.toggle("active", button.getAttribute("data-lang-button") === lang);
+        });
+
+        document.documentElement.lang = lang === "ua" ? "uk" : "en";
+        document.title = titles[lang];
+        if (metaDescription) {
+          metaDescription.setAttribute("content", descriptions[lang]);
+        }
+
+        try {
+          localStorage.setItem("cv-lang", lang);
+        } catch (error) {}
+
+        var url = new URL(window.location.href);
+        url.searchParams.set("lang", lang);
+        window.history.replaceState({}, "", url.toString());
+      }
+
+      buttons.forEach(function (button) {
+        button.addEventListener("click", function () {
+          setLanguage(button.getAttribute("data-lang-button"));
+        });
+      });
+
+      var urlLang = new URL(window.location.href).searchParams.get("lang");
+      var savedLang = null;
+
+      try {
+        savedLang = localStorage.getItem("cv-lang");
+      } catch (error) {}
+
+      setLanguage(urlLang || savedLang || "en");
+    }());
+  </script>
+</body>
+</html>
