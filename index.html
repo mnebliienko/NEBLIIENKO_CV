@@ -172,9 +172,15 @@
       z-index: 1;
     }
 
+    .hero-side {
+      display: grid;
+      gap: 16px;
+      align-self: start;
+    }
+
     .hero-grid {
       display: grid;
-      grid-template-columns: 240px minmax(0, 1.6fr) minmax(240px, 1fr);
+      grid-template-columns: 240px minmax(0, 1fr);
       gap: 24px;
       align-items: center;
       margin-top: 16px;
@@ -491,10 +497,6 @@
         align-items: start;
       }
 
-      .hero-grid > .contact-card {
-        display: none;
-      }
-
       .photo-wrap {
         max-width: 170px;
       }
@@ -560,8 +562,24 @@
       <section class="hero">
         <span class="eyebrow">CV / Resume</span>
         <div class="hero-grid">
-          <div class="photo-wrap">
-            <img class="photo" src="assets/profile.png" alt="Maksym Nebliienko">
+          <div class="hero-side">
+            <div class="photo-wrap">
+              <img class="photo" src="assets/profile.png" alt="Maksym Nebliienko">
+            </div>
+            <aside class="contact-card">
+              <div>
+                <span class="contact-label">Email</span>
+                <a class="contact-link" href="mailto:nebliienko@gmail.com">nebliienko@gmail.com</a>
+              </div>
+              <div>
+                <span class="contact-label">Focus</span>
+                <div class="fact-value">Fintech, Blockchain, AI, Payments Infrastructure</div>
+              </div>
+              <div>
+                <span class="contact-label">Languages</span>
+                <div class="fact-value">Ukrainian (Native), English (C1)</div>
+              </div>
+            </aside>
           </div>
           <div>
             <h1>Maksym Nebliienko</h1>
@@ -578,20 +596,6 @@
               <a class="button" href="#" onclick="window.print(); return false;">Print / Save as PDF</a>
             </div>
           </div>
-          <aside class="contact-card">
-            <div>
-              <span class="contact-label">Email</span>
-              <a class="contact-link" href="mailto:nebliienko@gmail.com">nebliienko@gmail.com</a>
-            </div>
-            <div>
-              <span class="contact-label">Focus</span>
-              <div class="fact-value">Fintech, Blockchain, AI, Payments Infrastructure</div>
-            </div>
-            <div>
-              <span class="contact-label">Languages</span>
-              <div class="fact-value">Ukrainian (Native), English (C1)</div>
-            </div>
-          </aside>
         </div>
       </section>
 
@@ -821,8 +825,24 @@
       <section class="hero">
         <span class="eyebrow">CV / Резюме</span>
         <div class="hero-grid">
-          <div class="photo-wrap">
-            <img class="photo" src="assets/profile.png" alt="Максим Неблієнко">
+          <div class="hero-side">
+            <div class="photo-wrap">
+              <img class="photo" src="assets/profile.png" alt="Максим Неблієнко">
+            </div>
+            <aside class="contact-card">
+              <div>
+                <span class="contact-label">Email</span>
+                <a class="contact-link" href="mailto:nebliienko@gmail.com">nebliienko@gmail.com</a>
+              </div>
+              <div>
+                <span class="contact-label">Фокус</span>
+                <div class="fact-value">Фінтех, блокчейн, штучний інтелект, платіжна інфраструктура</div>
+              </div>
+              <div>
+                <span class="contact-label">Мови</span>
+                <div class="fact-value">Українська (рідна), Англійська (C1)</div>
+              </div>
+            </aside>
           </div>
           <div>
             <h1>Maksym Nebliienko</h1>
@@ -839,20 +859,6 @@
               <a class="button" href="#" onclick="window.print(); return false;">Друк / Зберегти як PDF</a>
             </div>
           </div>
-          <aside class="contact-card">
-            <div>
-              <span class="contact-label">Email</span>
-              <a class="contact-link" href="mailto:nebliienko@gmail.com">nebliienko@gmail.com</a>
-            </div>
-            <div>
-              <span class="contact-label">Фокус</span>
-              <div class="fact-value">Фінтех, блокчейн, штучний інтелект, платіжна інфраструктура</div>
-            </div>
-            <div>
-              <span class="contact-label">Мови</span>
-              <div class="fact-value">Українська (рідна), Англійська (C1)</div>
-            </div>
-          </aside>
         </div>
       </section>
 
